@@ -40,7 +40,16 @@
             <div class="hole hole9">
                 <div class="mole"></div>
             </div>
-    </div>
+        </div>
+        <div class="highscores">
+            <h1>Highscores:</h1>
+            {% for r in score_list %}
+                <tr>
+                    <td></td>
+                    <td>{{ r['user_name'] }}</td>
+                    <td>{{ r['score'] }}</td>
+                </tr>
+        </div>
     <script src="game.js"></script>
 </body>
 </html>

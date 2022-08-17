@@ -27,17 +27,38 @@ h1 {
     margin-bottom: 0;
 }
 
+
+.column {
+  float: left;
+}
+
+.left {
+  width: 75%;
+}
+
+.right {
+  width: 25%;
+}
+
+
 .score {
     color: rgb(104, 94, 114);
     margin-top: 0%;
 }
 
 .game {
-    width: 800px;
+    width: 75%;
     height: 400px;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    float: left;
+}
+
+.highscores {
+    width: 25%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .hole {
