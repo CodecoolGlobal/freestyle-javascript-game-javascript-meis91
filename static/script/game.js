@@ -36,7 +36,6 @@ function peep() {
         desk.children[0].style.backgroundImage = randomCooler()
     }
     setTimeout(() => {
-        console.log('xxx')
         hole.classList.remove('up');
         if (!timeUp) peep();
     }, time);
@@ -53,9 +52,9 @@ function initGame() {
 function whack(e) {
     if (!e.isTrusted) return;
     score++;
-    await Sle
     this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
 }
 
-moles.forEach(mole => mole.addEventListener('click', whack));
+moles.forEach(mole => mole.addEventListener('click', whack))
+;
