@@ -1,6 +1,7 @@
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole')
+// const moles = moles.style.background = "url(static/adrian_before_ed.png) bottom center no-repeat";
 let lastHole;
 let timeUp = false;
 let score = 0;
@@ -31,9 +32,9 @@ function peep() {
     const time = randomTime(400, 1200);
     const hole = randomHole(holes);
     hole.classList.add('up');
-    for(desk of holes){
-        desk.children[0].style.backgroundImage = randomCooler()
-    }
+    console.log(image)
+    image.style.backgroundImage = randomCooler()
+    console.log(image.style.backgroundImage)
     setTimeout(() => {
         hole.classList.remove('up');
         if (!timeUp) peep();
