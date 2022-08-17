@@ -10,7 +10,7 @@ let score = 0;
 function randomCooler(){
     const coolers = ["adrian", "kathi", "david"];
     let randomCooler = coolers[Math.floor(Math.random() * coolers.length)];
-    return `url(static/${randomCooler}_before_ed.png)`
+    return `url(static/images/${randomCooler}_before_ed.png)`
 }
 
 
