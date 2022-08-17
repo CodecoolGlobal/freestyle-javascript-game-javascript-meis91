@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Whack A Cooler!</title>
+    <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../static/welcome.css">
+</head>
+<body>
+    <h1>Whack-a-Cooler!</h1>
+
+    <h2>You will see the Coolers popping up behind their tables - hit them as often as possible!</h2>
+
+    <div class="container-start">
+    <img src="../static/images/adrian_before_ed.png" onmouseover="this.src='../static/images/adrian_after_ed.png'"
+         onmouseout="this.src='../static/images/adrian_before_ed.png'" id="adrian"></img>
+    <img src="../static/images/kathi_before_ed.png" onmouseover="this.src='../static/images/kathi_after_ed.png'"
+         onmouseout="this.src='../static/images/kathi_before_ed.png'" id="kathi"></img>
+    <img src="../static/images/david_before_ed.png" onmouseover="this.src='../static/images/david_after_ed.png'"
+         onmouseout="this.src='../static/images/david_before_ed.png'" id="david"></img>
+    </div>
+    <br>
+    <div class="container-start">
+        <form action="#" method="post">
+            <label for="user_name">Please enter your name:</label>
+            <input type="text" name="user_name" id="user_name">
+            <button type="Submit">Play!</button>
+        </form>
+    </div>
+</html>
