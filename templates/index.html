@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Whack-a-Cooler!</h1>
+    {% if user_name %}
+        <h2>Active Player: {{ user_name }}</h2>
+    {% endif %}
     <h1 class="score"> 0</h1>
         <div class = "start">
             <button onClick="initGame()">Start!</button>
@@ -43,12 +46,14 @@
         </div>
         <div class="highscores">
             <h1>Highscores:</h1>
+            <br>
             {% for r in score_list %}
                 <tr>
                     <td></td>
                     <td>{{ r['user_name'] }}</td>
                     <td>{{ r['score'] }}</td>
                 </tr>
+            {% endfor %}
         </div>
     <script src="../static/script/game.js"></script>
 </body>
