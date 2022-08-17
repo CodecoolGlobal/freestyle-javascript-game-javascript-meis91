@@ -1,9 +1,18 @@
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
-const moles = document.querySelectorAll('.mole');
+const moles = document.querySelectorAll('.mole')
+// const moles = moles.style.background = "url(static/adrian_before_ed.png) bottom center no-repeat";
 let lastHole;
 let timeUp = false;
 let score = 0;
+
+
+function randomCooler(){
+    const coolers = ["adrian", "kathi", "david"];
+    let randomCooler = coolers[Math.floor(Math.random() * coolers.length)];
+    return `url(static/${randomCooler}_before_ed.png)`
+}
+
 
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
@@ -20,11 +29,16 @@ function randomHole(holes) {
 }
 
 function peep() {
-    const time = randomTime(200, 1000);
+    const time = randomTime(400, 1200);
     const hole = randomHole(holes);
+    const image = document.getElementById('cooler')
     hole.classList.add('up');
+    console.log(image)
+    image.style.backgroundImage = randomCooler()
+    console.log(image.style.backgroundImage)
     setTimeout(() => {
         hole.classList.remove('up');
+        image.style.backgroundImage = randomCooler()
         if (!timeUp) peep();
     }, time);
 }
