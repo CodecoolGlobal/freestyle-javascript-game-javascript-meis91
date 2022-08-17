@@ -10,7 +10,7 @@ let score = 0;
 function randomCooler(){
     const coolers = ["adrian", "kathi", "david"];
     let randomCooler = coolers[Math.floor(Math.random() * coolers.length)];
-    return `url(../static/images/${randomCooler}_before_ed.png)`
+    return `url(../static/img/${randomCooler}.before.png)`
 }
 
 
@@ -31,39 +31,13 @@ function randomHole(holes) {
 function peep() {
     const time = randomTime(400, 1200);
     const hole = randomHole(holes);
-    const cooler = document.querySelectorAll('.mole')
-    const grid = document.getElementsByClassName('game')
-    // holes.children.style.backgroundImage = randomCooler()
-    console.log(cooler)
-    // for(cool of cooler ){
-    //     console.log(cool)
-    //     cool.style.backgroundImage = randomCooler()
-    //     console.log(cool)
-    // }
-    // cooler.style.backgroundImage = randomCooler()
-    // for(cool in cool){
-    //     consol.log(cool);
-    //     cool.style.backgroundImage = randomCooler();
-    // }
-
-    // cooler[0].style.backgroundImage = randomCooler()
-    // console.log(grid)
-    // hole.classList.add('up');
-    // console.log(image)
-    // // console.log(document.getElementsByClassName('game'))
-    // for(hole of document.getElementsByClassName('game')){
-    //     console.dir(hole)
-    //     for (cooler of hole.children){
-    //
-    //         console.log(cooler.backgroundImage)
-    //     }
-    // };
-    // image.style.backgroundImage = randomCooler()
-    // console.log(image.style.backgroundImage)
+    hole.classList.add('up');
+    for(desk of holes){
+        desk.children[0].style.backgroundImage = randomCooler()
+    }
     setTimeout(() => {
         console.log('xxx')
         hole.classList.remove('up');
-        // image.style.backgroundImage = randomCooler()
         if (!timeUp) peep();
     }, time);
 }
@@ -79,6 +53,7 @@ function initGame() {
 function whack(e) {
     if (!e.isTrusted) return;
     score++;
+    await Sle
     this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
 }
