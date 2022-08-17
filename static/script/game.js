@@ -1,7 +1,6 @@
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole')
-// const moles = moles.style.background = "url(static/adrian_before_ed.png) bottom center no-repeat";
 let lastHole;
 let timeUp = false;
 let score = 0;
