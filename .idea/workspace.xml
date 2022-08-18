@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58e941b5-9258-4c94-8d02-bfd6e016a5cc" name="Changes" comment="resolved mergeconflicts">
-      <change afterPath="$PROJECT_DIR$/.idea/freestyle-javascript-game-javascript-meis91.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/script/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/welcome.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style/welcome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/welcome.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +50,7 @@
       <workItem from="1660726756172" duration="762000" />
       <workItem from="1660728321641" duration="57000" />
       <workItem from="1660728386290" duration="10658000" />
-      <workItem from="1660807085773" duration="186000" />
+      <workItem from="1660807085773" duration="6683000" />
     </task>
     <task id="LOCAL-00001" summary="resolved mergeconflicts">
       <created>1660804403618</created>
@@ -91,6 +84,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="resolved mergeconflicts" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/freestyle_javascript_game_javascript_meis91$server.coverage" NAME="server Coverage Results" MODIFIED="1660807208985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/freestyle_javascript_game_javascript_meis91$server.coverage" NAME="server Coverage Results" MODIFIED="1660819174947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
