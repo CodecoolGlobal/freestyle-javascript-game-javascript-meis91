@@ -7,49 +7,58 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <h1>Whack-a-Cooler!</h1>
-    <h1 class="score"> 0</h1>
-        <div class = "start">
-            <button onClick="initGame()">Start!</button>
-        </div>
-        <div class="game">
-            <div class="hole hole1">
-                <div class="mole" id="cooler" >x</div>
-            </div>
-            <div class="hole hole2">
-                <div class="mole" id="cooler"></div>
-            </div>
-            <div class="hole hole3">
-                <div class="mole" id="cooler"></div>
-            </div>
-            <div class="hole hole4">
-                <div class="mole" id="cooler"></div>
-            </div>
-            <div class="hole hole5">
-                <div class="mole" id="cooler"></div>
-            </div>
-            <div class="hole hole6">
-                <div class="mole" id="cooler"></div>
-            </div>
-            <div class="hole hole7">
-                <div class="mole" id="cooler"></div>
-            </div>
-            <div class="hole hole8">
-                <div class="mole" id="cooler"></div>
-            </div>
-            <div class="hole hole9">
-                <div class="mole" id="cooler"></div>
-            </div>
-        </div>
-        <div class="highscores">
-            <h1>Highscores:</h1>
-            {% for r in score_list %}
+<h1>Whack-a-Cooler!</h1>
+<h1 class="score"> 0</h1>
+<div class="start">
+    <button onClick="initGame()">Start!</button>
+</div>
+<div class="remainingTime" id="remainingTime">
+    Remaining time:
+</div>
+<div class="game">
+    <div class="hole hole1">
+        <div class="mole" id="cooler">x</div>
+    </div>
+    <div class="hole hole2">
+        <div class="mole" id="cooler"></div>
+    </div>
+    <div class="hole hole3">
+        <div class="mole" id="cooler"></div>
+    </div>
+    <div class="hole hole4">
+        <div class="mole" id="cooler"></div>
+    </div>
+    <div class="hole hole5">
+        <div class="mole" id="cooler"></div>
+    </div>
+    <div class="hole hole6">
+        <div class="mole" id="cooler"></div>
+    </div>
+    <div class="hole hole7">
+        <div class="mole" id="cooler"></div>
+    </div>
+    <div class="hole hole8">
+        <div class="mole" id="cooler"></div>
+    </div>
+    <div class="hole hole9">
+        <div class="mole" id="cooler"></div>
+    </div>
+</div>
+<div class="highscores">
+    <h2>Highscores:</h2>
+    <div>
+    <table>
+    {% for i in score_list %}
                 <tr>
-                    <td></td>
-                    <td>{{ r['user_name'] }}</td>
-                    <td>{{ r['score'] }}</td>
+                    <td>{{ loop.index }}:</td>
+                    <td>{{ i['user_name'] }}</td>
+                    <td>{{ i['score'] }}</td>
                 </tr>
-        </div>
-    <script src="../game.js"></script>
+
+    {% endfor %}
+    </table>
+    </div>
+</div>
+<script src="../game.js"></script>
 </body>
 </html>

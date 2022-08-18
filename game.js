@@ -48,7 +48,8 @@ function initGame() {
     timeUp = false;
     score = 0;
     peep();
-    setTimeout(() => timeUp = true, 10000)
+    let time = setTimeout(() => timeUp = true, 10000)
+    document.getElementById("remainingTime").innerHTML = time
 }
 
 function whack(e) {

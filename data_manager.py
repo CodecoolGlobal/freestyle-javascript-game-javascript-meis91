@@ -1,14 +1,15 @@
-import psycopg2
+
 from psycopg2.extras import RealDictCursor
-import database_common
+import connection
+import psycopg2
 
 
-@database_common.connection_handler
+@connection.connection_handler
 def get_highscore_list(cursor: RealDictCursor):
     query = """
-        SELECT user_name, score
+        SELECT *
         FROM users
-        LIMIT 5;
+        ORDER BY score DESC;
         """
     cursor.execute(query)
     return cursor.fetchall()
