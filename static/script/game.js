@@ -58,6 +58,7 @@ function initGame() {
             timeUp = true;
             score = scoreBoard.textContent
             sendUserScore();
+            moles.forEach(mole => mole.removeEventListener('click', whack));
         }
         remainingTime.innerText = 'Remaining time: ' + timeleft;
         timeleft -= 1;
