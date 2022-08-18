@@ -1,10 +1,20 @@
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
-const moles = document.querySelectorAll('.mole')
-// const moles = moles.style.background = "url(static/adrian_before_ed.png) bottom center no-repeat";
+const moles = document.querySelectorAll('.mole');
+const coolers = ["adrian", "kathi", "david"];
 let lastHole;
 let timeUp = false;
 let score = 0;
+let onWhack = false;
+
+
+function initGame() {
+    scoreBoard.textContent = 0;
+    timeUp = false;
+    score = 0;
+    peep();
+    setTimeout(() => timeUp = true, 1000)
+}
 
 
 function randomCooler(){
@@ -18,6 +28,7 @@ function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
+
 function randomHole(holes) {
     const idx = Math.floor(Math.random() * holes.length);
     const hole = holes[idx];
@@ -28,16 +39,17 @@ function randomHole(holes) {
     return hole;
 }
 
+
 function peep() {
-    const time = randomTime(400, 1200);
+    const time = randomTime(600, 1200);
     const hole = randomHole(holes);
+    console.log(hole.children[0])
+    hole.children[0].style.backgroundImage = randomCooler()
     hole.classList.add('up');
-    for(let desk of holes){
-        desk.children[0].style.backgroundImage = randomCooler()
-    }
-    setTimeout(() => {
+    setTimeout(() => {if (!timeUp) {
         hole.classList.remove('up');
-        if (!timeUp) peep();
+        peep();
+        }
     }, time);
 }
 
@@ -58,29 +70,47 @@ function initGame() {
         timeleft -= 1;
     }, 900);
     peep();
+    if(!timeUp) {
+        setTimeout(() => {
+                hole.classList.remove('up');
+                peep();
+            }
+            , time);
+    }
 }
 
-function whack(e) {
-    if (!e.isTrusted) return;
+
+function whack(event) {
+    let cooler = event.target
+    timeUp = true;
+    if (!event.isTrusted) return;
+    whackFace(cooler)
     score++;
     this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
-    }
+    console.log("start Timeout")
+    setTimeout(whackCoolerDown,500, cooler);
+    timeUp = false;
+}
 
-// function cursor(){
-//     document.getElementsByTagName("body").style.cursor = "pointer"
-// }
 
-// for(let i = 0; i < moles.length; i++){
-//   moles[i].addEventListener("click", function(){whack(e, i);});
-// }
-moles.forEach(mole => mole.addEventListener('click', whack))
-;
+function whackCoolerDown(cooler){
+    cooler.parentNode.classList.remove('up');
+}
 
-// moles.forEach(mole => mole.addEventListener('mouseover', function () {
-//     document.getElementsByTagName("body").style.cursor = "pointer"
-//
-// }))
+
+function whackFace(cooler){
+    let whackCooler = 4
+    if (cooler.style.backgroundImage == 'url("../static/img/adrian.before.png")') {whackCooler = 0}
+    else if (cooler.style.backgroundImage == 'url("../static/img/kathi.before.png")') {whackCooler = 1}
+    else if (cooler.style.backgroundImage == 'url("../static/img/david.before.png")')  {whackCooler= 2}
+    console.log('before is', cooler.style.backgroundImage);
+    cooler.style.backgroundImage = `url("../static/img/${coolers[whackCooler]}.after.png")`;
+    console.log('after is', cooler.style.backgroundImage);
+}
+
+
+moles.forEach(mole => mole.addEventListener('click', whack));
 
 function sendUserScore() {
     const request = new XMLHttpRequest()
