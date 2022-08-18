@@ -50,11 +50,24 @@ function initGame() {
 }
 
 function whack(e) {
+    console.log(i)
     if (!e.isTrusted) return;
     score++;
     this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
 }
 
+// function cursor(){
+//     document.getElementsByTagName("body").style.cursor = "pointer"
+// }
+
+// for(let i = 0; i < moles.length; i++){
+//   moles[i].addEventListener("click", function(){whack(e, i);});
+// }
 moles.forEach(mole => mole.addEventListener('click', whack))
 ;
+
+// moles.forEach(mole => mole.addEventListener('mouseover', function () {
+//     document.getElementsByTagName("body").style.cursor = "pointer"
+//
+// }))
