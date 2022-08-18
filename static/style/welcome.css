@@ -13,7 +13,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Shadows Into Light', cursive;
-    background-image: url("images/welcome.png");
+    background-image: url("../images/welcome.png");
     background-repeat: no-repeat;
     background-color: #FFFFFF;
     background-attachment:fixed;

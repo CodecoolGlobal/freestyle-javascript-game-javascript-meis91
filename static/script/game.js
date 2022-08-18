@@ -51,7 +51,6 @@ function initGame() {
 }
 
 function whack(e) {
-    console.log(i)
     if (!e.isTrusted) return;
     score++;
     this.parentNode.classList.remove('up');
