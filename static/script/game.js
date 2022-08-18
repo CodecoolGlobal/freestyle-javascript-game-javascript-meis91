@@ -4,17 +4,8 @@ const moles = document.querySelectorAll('.mole');
 const coolers = ["adrian", "kathi", "david"];
 let lastHole;
 let timeUp = false;
+let whackCoolerUp = false;
 let score = 0;
-let onWhack = false;
-
-
-function initGame() {
-    scoreBoard.textContent = 0;
-    timeUp = false;
-    score = 0;
-    peep();
-    setTimeout(() => timeUp = true, 1000)
-}
 
 
 function randomCooler(){
@@ -46,12 +37,14 @@ function peep() {
     console.log(hole.children[0])
     hole.children[0].style.backgroundImage = randomCooler()
     hole.classList.add('up');
-    setTimeout(() => {if (!timeUp) {
-        hole.classList.remove('up');
-        peep();
-        }
-    }, time);
+    if(!whackCoolerUp&&!timeUp) {
+        setTimeout(() => {
+                hole.classList.remove('up');
+                peep();
+        }, time);
+    }
 }
+
 
 function initGame() {
     scoreBoard.textContent = 0;
@@ -70,27 +63,18 @@ function initGame() {
         timeleft -= 1;
     }, 900);
     peep();
-    if(!timeUp) {
-        setTimeout(() => {
-                hole.classList.remove('up');
-                peep();
-            }
-            , time);
-    }
 }
 
 
 function whack(event) {
     let cooler = event.target
-    timeUp = true;
     if (!event.isTrusted) return;
     whackFace(cooler)
+    whackCoolerUp = true;
     score++;
-    this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
-    console.log("start Timeout")
     setTimeout(whackCoolerDown,500, cooler);
-    timeUp = false;
+    whackCoolerUp = false;
 }
 
 
@@ -104,16 +88,15 @@ function whackFace(cooler){
     if (cooler.style.backgroundImage == 'url("../static/img/adrian.before.png")') {whackCooler = 0}
     else if (cooler.style.backgroundImage == 'url("../static/img/kathi.before.png")') {whackCooler = 1}
     else if (cooler.style.backgroundImage == 'url("../static/img/david.before.png")')  {whackCooler= 2}
-    console.log('before is', cooler.style.backgroundImage);
     cooler.style.backgroundImage = `url("../static/img/${coolers[whackCooler]}.after.png")`;
-    console.log('after is', cooler.style.backgroundImage);
 }
 
-
-moles.forEach(mole => mole.addEventListener('click', whack));
 
 function sendUserScore() {
     const request = new XMLHttpRequest()
     request.open('POST', `/save_score/${score}`)
     request.send()
-;}
+    ;}
+
+
+moles.forEach(mole => mole.addEventListener('click', whack));
