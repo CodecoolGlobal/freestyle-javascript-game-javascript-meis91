@@ -51,6 +51,8 @@ function initGame() {
         if (timeleft <= 0) {
             clearInterval(timer);
             timeUp = true;
+            score = scoreBoard.textContent
+            sendUserScore();
         }
         remainingTime.innerText = 'Remaining time: ' + timeleft;
         timeleft -= 1;
@@ -63,7 +65,6 @@ function whack(e) {
     score++;
     this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
-    sendUserScore();
     }
 
 // function cursor(){
@@ -83,6 +84,6 @@ moles.forEach(mole => mole.addEventListener('click', whack))
 
 function sendUserScore() {
     const request = new XMLHttpRequest()
-    request.open('POST', `/save_score/${JSON.stringify(score)}`)
+    request.open('POST', `/save_score/${score}`)
     request.send()
 ;}
