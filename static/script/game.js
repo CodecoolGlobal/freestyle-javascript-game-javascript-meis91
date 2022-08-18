@@ -55,7 +55,8 @@ function whack(e) {
     score++;
     this.parentNode.classList.remove('up');
     scoreBoard.textContent = score;
-}
+    sendUserScore();
+    }
 
 // function cursor(){
 //     document.getElementsByTagName("body").style.cursor = "pointer"
@@ -71,3 +72,9 @@ moles.forEach(mole => mole.addEventListener('click', whack))
 //     document.getElementsByTagName("body").style.cursor = "pointer"
 //
 // }))
+
+function sendUserScore() {
+    const request = new XMLHttpRequest()
+    request.open('POST', `/save_score/${JSON.stringify(score)}`)
+    request.send()
+;}
