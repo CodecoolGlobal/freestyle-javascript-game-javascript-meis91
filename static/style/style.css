@@ -3,8 +3,8 @@
 html {
     box-sizing: border-box;
     font-size: 10px;
-    background-color: #f3e6e8;
-    background-image: linear-gradient(315deg, #f3e6e8 0%, #d5d0e5 74%);
+    background-color: #ebf2fc;
+    background-image: linear-gradient(315deg, #e6e7f3 0%, #d0d3e5 74%);
 }
 
 *, *:before, *:after {

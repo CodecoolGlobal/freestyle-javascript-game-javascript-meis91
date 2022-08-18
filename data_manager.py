@@ -9,7 +9,8 @@ def get_highscore_list(cursor: RealDictCursor):
     query = """
         SELECT user_name, score
         FROM users
-        ORDER BY score DESC;
+        ORDER BY score DESC
+        LIMIT 5;
         """
     cursor.execute(query)
     return cursor.fetchall()

@@ -21,7 +21,6 @@ def index(user_name=None):
 @app.route('/save_score/<score>', methods=["GET", "POST"])
 def saveScore(score):
     data_manager.update_user_score(score)
-    print(score)
     return score
 
 if __name__ == "__main__":
