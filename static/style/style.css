@@ -19,6 +19,7 @@ body {
 
 .start {
     text-align: center;
+    width: 75%;
 }
 
 h1 {
@@ -33,24 +34,12 @@ h2 {
     margin-bottom: 0;
 }
 
-
-.column {
-  float: left;
+div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    width: 100%;
 }
 
-.left {
-  width: 75%;
-}
-
-.right {
-  width: 25%;
-}
-
-
-.score {
-    color: rgb(104, 94, 114);
-    margin-top: 0%;
-}
 
 .game {
     width: 75%;
@@ -61,10 +50,15 @@ h2 {
     float: left;
 }
 
+.score {
+    color: rgb(104, 94, 114);
+    margin-top: 0%;
+    width: 75%;
+}
+
 .highscores {
-    width: 25%;
-    display: flex;
     justify-content: space-evenly;
+    font-size: 1.5rem;
 }
 
 .hole {
