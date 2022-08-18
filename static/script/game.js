@@ -32,9 +32,10 @@ function peep() {
     const time = randomTime(400, 1200);
     const hole = randomHole(holes);
     hole.classList.add('up');
-    console.log(image)
-    image.style.backgroundImage = randomCooler()
-    console.log(image.style.backgroundImage)
+    hole.classList.add('up');
+    for(desk of holes){
+        desk.children[0].style.backgroundImage = randomCooler()
+    }
     setTimeout(() => {
         hole.classList.remove('up');
         if (!timeUp) peep();
