@@ -1,8 +1,5 @@
-import psycopg2
 from psycopg2.extras import RealDictCursor
 import connection
-import psycopg2
-
 
 @connection.connection_handler
 def get_highscore_list(cursor: RealDictCursor):

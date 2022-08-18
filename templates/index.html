@@ -7,62 +7,69 @@
     <link rel="stylesheet" href="../static/style/style.css">
 </head>
 <body>
-<h1>Whack-a-Cooler!</h1>
-{% if user_name %}
-    <h2>Active Player: {{ user_name }}</h2>
-{% endif %}
-<div class="remainingTime" id="remainingTime">
-    Remaining time: 10
-</div>
-<h1 class="score"> 0</h1>
-<div class="start">
-    <button onClick="initGame()">Start!</button>
-</div>
-<div class="game">
-    <div class="hole hole1">
-        <div class="mole" id="cooler1">x</div>
-    </div>
-    <div class="hole hole2">
-        <div class="mole" id="cooler2"></div>
-    </div>
-    <div class="hole hole3">
-        <div class="mole" id="cooler3"></div>
-    </div>
-    <div class="hole hole4">
-        <div class="mole" id="cooler4"></div>
-    </div>
-    <div class="hole hole5">
-        <div class="mole" id="cooler5"></div>
-    </div>
-    <div class="hole hole6">
-        <div class="mole" id="cooler6"></div>
-    </div>
-    <div class="hole hole7">
-        <div class="mole" id="cooler7"></div>
-    </div>
-    <div class="hole hole8">
-        <div class="mole" id="cooler8"></div>
-    </div>
-    <div class="hole hole9">
-        <div class="mole" id="cooler9"></div>
-    </div>
-</div>
-<div class="highscores">
-    <h2>Highscores:</h2>
-    <div>
-        <table>
-            {% for i in score_list %}
-                <tr>
-                    <td>{{ loop.index }}:</td>
-                    <td>{{ i['user_name'] }}</td>
-                    <td>{{ i['score'] }}</td>
-                </tr>
+    <h1>Whack-a-Cooler!</h1>
 
-            {% endfor %}
-        </table>
+    {% if user_name %}
+        <h2>Active Player: {{ user_name }}</h2>
+    {% endif %}
+
+    <div class="remainingTime" id="remainingTime">
+     Remaining time: 10
     </div>
-</div>
-<script src="../static/script/game.js"></script>
+
+    <h1 class="score"> 0</h1>
+
+    <div class="start">
+        <button onClick="initGame()">Start!</button>
+    </div>
+
+    <div class="game">
+        <div class="table table1">
+            <div class="cooler" id="cooler1">x</div>
+        </div>
+        <div class="table table2">
+            <div class="cooler" id="cooler2"></div>
+        </div>
+        <div class="table table3">
+            <div class="cooler" id="cooler3"></div>
+        </div>
+        <div class="table table4">
+            <div class="cooler" id="cooler4"></div>
+        </div>
+        <div class="table table5">
+            <div class="cooler" id="cooler5"></div>
+        </div>
+        <div class="table table6">
+            <div class="cooler" id="cooler6"></div>
+        </div>
+        <div class="table table7">
+            <div class="cooler" id="cooler7"></div>
+        </div>
+        <div class="table table8">
+            <div class="cooler" id="cooler8"></div>
+        </div>
+        <div class="table table9">
+            <div class="cooler" id="cooler9"></div>
+        </div>
+    </div>
+
+    <div class="highscores">
+        <h2>Highscores:</h2>
+        <div>
+            <table>
+               {% for i in score_list %}
+                 <tr>
+                   <td>{{ loop.index }}:</td>
+                   <td>{{ i['user_name'] }}</td>
+                   <td>{{ i['score'] }}</td>
+                 </tr>
+
+               {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <script src="../static/script/game.js"></script>
 
 </body>
 </html>

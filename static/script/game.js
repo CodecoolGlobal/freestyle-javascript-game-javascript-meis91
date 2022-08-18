@@ -1,16 +1,15 @@
-const holes = document.querySelectorAll('.hole');
+const tables = document.querySelectorAll('.table');
 const scoreBoard = document.querySelector('.score');
-const moles = document.querySelectorAll('.mole');
-const coolers = ["adrian", "kathi", "david"];
-let lastHole;
+const coolers = document.querySelectorAll('.cooler');
+const possibleCoolers = ["adrian", "kathi", "david"];
+let lastTable;
 let timeUp = false;
 let whackCoolerUp = false;
 let score = 0;
 
 
 function randomCooler(){
-    const coolers = ["adrian", "kathi", "david"];
-    let randomCooler = coolers[Math.floor(Math.random() * coolers.length)];
+    let randomCooler = possibleCoolers[Math.floor(Math.random() * possibleCoolers.length)];
     return `url(../static/img/${randomCooler}.before.png)`
 }
 
@@ -20,20 +19,20 @@ function randomTime(min, max) {
 }
 
 
-function randomHole(holes) {
-    const idx = Math.floor(Math.random() * holes.length);
-    const hole = holes[idx];
-    if (hole === lastHole) {
-        return randomHole(holes);
+function randomTable(tables) {
+    const idx = Math.floor(Math.random() * tables.length);
+    const table = tables[idx];
+    if (table === lastTable) {
+        return randomTable(tables);
     }
-    lastHole = hole;
-    return hole;
+    lastTable = table;
+    return table;
 }
 
 
 function peep() {
     const time = randomTime(600, 1200);
-    const hole = randomHole(holes);
+    const hole = randomTable(tables);
     console.log(hole.children[0])
     hole.children[0].style.backgroundImage = randomCooler()
     hole.classList.add('up');
@@ -57,8 +56,9 @@ function initGame() {
             clearInterval(timer);
             timeUp = true;
             score = scoreBoard.textContent
+            console.log(score)
             sendUserScore();
-            moles.forEach(mole => mole.removeEventListener('click', whack));
+            coolers.forEach(mole => mole.removeEventListener('click', whack));
         }
         remainingTime.innerText = 'Remaining time: ' + timeleft;
         timeleft -= 1;
@@ -68,13 +68,13 @@ function initGame() {
 
 
 function whack(event) {
-    let cooler = event.target
+    let coolerToWhack = event.target
     if (!event.isTrusted) return;
-    whackFace(cooler)
+    whackFace(coolerToWhack)
     whackCoolerUp = true;
     score++;
     scoreBoard.textContent = score;
-    setTimeout(whackCoolerDown,500, cooler);
+    setTimeout(whackCoolerDown,500, coolerToWhack);
     whackCoolerUp = false;
 }
 
@@ -89,7 +89,7 @@ function whackFace(cooler){
     if (cooler.style.backgroundImage == 'url("../static/img/adrian.before.png")') {whackCooler = 0}
     else if (cooler.style.backgroundImage == 'url("../static/img/kathi.before.png")') {whackCooler = 1}
     else if (cooler.style.backgroundImage == 'url("../static/img/david.before.png")')  {whackCooler= 2}
-    cooler.style.backgroundImage = `url("../static/img/${coolers[whackCooler]}.after.png")`;
+    cooler.style.backgroundImage = `url("../static/img/${possibleCoolers[whackCooler]}.after.png")`;
 }
 
 
@@ -100,4 +100,4 @@ function sendUserScore() {
     ;}
 
 
-moles.forEach(mole => mole.addEventListener('click', whack));
+coolers.forEach(mole => mole.addEventListener('click', whack));
