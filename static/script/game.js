@@ -32,8 +32,7 @@ function peep() {
     const time = randomTime(400, 1200);
     const hole = randomHole(holes);
     hole.classList.add('up');
-    hole.classList.add('up');
-    for(desk of holes){
+    for(let desk of holes){
         desk.children[0].style.backgroundImage = randomCooler()
     }
     setTimeout(() => {
@@ -46,8 +45,17 @@ function initGame() {
     scoreBoard.textContent = 0;
     timeUp = false;
     score = 0;
+    remainingTime = document.getElementById("remainingTime");
+    let timeleft = 10;
+    let timer = setInterval(function () {
+        if (timeleft <= 0) {
+            clearInterval(timer);
+            timeUp = true;
+        }
+        remainingTime.innerText = 'Remaining time: ' + timeleft;
+        timeleft -= 1;
+    }, 900);
     peep();
-    setTimeout(() => timeUp = true, 10000)
 }
 
 function whack(e) {
