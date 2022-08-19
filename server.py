@@ -19,8 +19,11 @@ def index(user_name=None):
     return render_template('index.html', score_list=score_list, user_name=user_name)
 
 
-@app.route('/save_score/<score>', methods=['GET', 'POST'])
-def save_score(score):
+@app.route('/save_score', methods=['POST'])
+def save_score():
+    # TODO: Not working,
+    #       doesn't get past request.json line (???)
+    score = request.json["score"]
     data_manager.update_user_score(score)
     return score
 
